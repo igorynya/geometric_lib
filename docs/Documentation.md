@@ -6,6 +6,9 @@
 - square.py - квадрат
 - circle.py - окружность
 
+Написаны тесты, покрывающие функционал библиотеки
+- geometric_lib_tests.py
+
 На вход каждой программы подаются переменные, необходимые для вычисления площади или периметра.
 
 ## 1. <ins>rectangle.py</ins>
@@ -118,6 +121,32 @@ print(square.perimetr(5.2))
 ```
 Результатом выполнения этой программы будет число **20.8**, выведенное в консоль.
 
+## 5. <ins>geometric_lib_tests.py</ins>
+Тесты, проверяющие математическкую корректность работы функций
+
+Пример: 
+```Python
+def test_circle_perimeter_3(self):
+    res = square.perimeter(59.75)
+    self.assertEqual(round(res, 0), 239)
+```
+
+Тесты, проверяющие корректность входных данных 
+
+Пример:
+```python
+def test_type_argument_perimeter_2(self):
+    with self.assertRaises(TypeError) as e:
+        rectangle.perimeter('abc', 'a')
+    self.assertEqual("The function accepts only float values as input", e.exception.args[0])
+
+def test_negative_area_2(self):
+    with self.assertRaises(ValueError) as e:
+        rectangle.area(10, -10)
+    self.assertEqual("The function accepts only positive values as input", e.exception.args[0])
+
+```
+
 ## Хеши коммитов
 ### 1. Добавлен файл <ins>triangle.py</ins>.
 - Хеш: c64f11e85cfecedaa357406fcdae4b3f037052bb
@@ -131,3 +160,9 @@ print(square.perimetr(5.2))
 
 ### 4. Создана документация.
 - Хеш: 29c4add5bb7c76a8e5a353762a420a39cf04756b
+
+### 5. Добавлены комментарии в файлы проекта.
+- Хеш: 0a56286e43b14bbc1f4d5017707f94a70618dce1
+  
+### 6. Добавлены тесты.
+- Хеш: 1c87f31d90f291891137e456c2d5e280e83d9440

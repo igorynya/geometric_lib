@@ -2,7 +2,13 @@ import math
 
 def area(r):
     '''Принимает число r (радиус окружности) и возвращает площадь окружности'''
-    return math.pi * r * r
+    if not isinstance(r, (int, float)):
+        raise TypeError('The function accepts only float values as input')
+    elif r <= 0:
+        raise ValueError('The function accepts only positive values as input')
+    else:
+        return math.pi * r * r
+    
 
 
 def perimeter(r):
@@ -15,5 +21,10 @@ def perimeter(r):
         Возвращаемое значение:
             perimetr_circle (int/double): число - периметр окружности
     '''
-    return 2 * math.pi * r
-
+    if not isinstance(r, (int, float)):
+        raise TypeError('The function accepts only float values as input')
+    elif r <= 0:
+        raise ValueError('The function accepts only positive values as input')
+    else:
+        return 2 * math.pi * r
+    
