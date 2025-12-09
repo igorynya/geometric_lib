@@ -1,11 +1,19 @@
 name: test_figures
 on: push
 jobs:
-  test_lib:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  ubuntu_test_lib:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check repository code
+        uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+      - name: Run tests
+        run: python -m unittest geometric_lib_tests.py
+  windows_latest_test_lib:
+    runs-on: windows-latest
     steps:
       - name: Check repository code
         uses: actions/checkout@v3
