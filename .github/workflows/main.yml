@@ -14,4 +14,4 @@ jobs:
         with:
           python-version: '3.11'
       - name: Run tests
-        run: python -m unittest tests/figures_test.py
+        run: python -m unittest geometric_lib_tests.py
