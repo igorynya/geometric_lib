@@ -1,0 +1,22 @@
+name: test_figures
+on: 
+  push: 
+    branches: [ new_feautures_501826 ]
+  pull_request: 
+    branches: [ new_feautures_501826 ]
+
+jobs:
+  test_lib:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check repository code
+        uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+      - name: Run tests
+        run: python -m unittest tests/figures_test.py
