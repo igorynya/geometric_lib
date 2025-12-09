@@ -1,10 +1,5 @@
 name: test_figures
-on: 
-  push: 
-    branches: [ new_feautures_501826 ]
-  pull_request: 
-    branches: [ new_feautures_501826 ]
-
+on: push
 jobs:
   test_lib:
     strategy:
